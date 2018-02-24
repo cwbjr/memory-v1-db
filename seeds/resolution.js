@@ -21,5 +21,7 @@ exports.seed = function(knex, Promise) {
           resolution: 'Start knitting'
         },
       ]);
+    }).then(() => {
+        return knex.raw("ALTER SEQUENCE resolution_id_seq RESTART WITH 4;");
     });
 };
